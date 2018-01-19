@@ -1,0 +1,8 @@
+<?php
+
+require_once dirname(__DIR__).DS.'bootstrap.php';
+
+class Crypt_Random
+extends\phpseclib\Crypt\Random
+{
+}

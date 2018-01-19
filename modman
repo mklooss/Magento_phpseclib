@@ -1,1 +1,2 @@
-src/phpseclib			app/code/community/phpseclib
+src/phpseclib			app/code/community/phpseclib-2.0.9
+phpseclib-compact               app/code/community/phpseclib
