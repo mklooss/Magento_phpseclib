@@ -2,7 +2,7 @@
 
 if (!defined('PHPSECLIB_VERSION'))
 {
-    define('PHPSECLIB_VERSION', '2.0.9');
+    define('PHPSECLIB_VERSION', '2.0.11');
 }
 
 require_once 'phpseclib-'.PHPSECLIB_VERSION.'/Math/BigInteger.php';
