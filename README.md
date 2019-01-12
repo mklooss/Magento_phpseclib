@@ -1,4 +1,4 @@
-Magento_phpseclibUrlIndexer
+Magento_phpseclib
 =====================
 This "Module" is a drop in replacment for Magentos phpseclib Version.
 When your using Magento 1.9.4.0 - you don't need this module!
