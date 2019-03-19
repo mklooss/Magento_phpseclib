@@ -39,7 +39,7 @@ Mathis Klooß
 
 Licence
 -------
-[OSL - Open Software Licence 3.0](http://opensource.org/licenses/osl-3.0.php)
+[MIT License](http://www.opensource.org/licenses/mit-license.html)
 
 Copyright
 ---------
