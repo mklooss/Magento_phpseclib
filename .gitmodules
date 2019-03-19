@@ -1,3 +1,6 @@
 [submodule "src"]
 	path = src
 	url = https://github.com/phpseclib/phpseclib.git
+[submodule "mcrypt_compat"]
+	path = mcrypt_compat
+	url = https://github.com/phpseclib/mcrypt_compat.git

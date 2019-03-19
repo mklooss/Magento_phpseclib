@@ -1,2 +1,3 @@
-src/phpseclib			app/code/community/phpseclib-2.0.13
-phpseclib-compact               app/code/community/phpseclib
+src/phpseclib			app/code/community/phpseclib
+mcrypt_compat/lib               app/code/community/mcryptcompat
+phpseclib-compact               app/code/local/phpseclib

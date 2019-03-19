@@ -1,7 +1,6 @@
 Magento_phpseclib
 =====================
 This "Module" is a drop in replacment for Magentos phpseclib Version.
-When your using Magento 1.9.4.0 - you don't need this module!
 
 Facts
 -----
@@ -11,7 +10,11 @@ Facts
 Requirements
 ------------
 - PHP >= 5.6.0
-- Magento < 1.9.4.0
+- Magento <= 1.9.x.x
+
+Attention
+---------
+If your using Magento lower than 1.9.4.0 your also have to install [Loewenstark_Php72](https://github.com/mklooss/Loewenstark_Php72)
 
 Compatibility
 -------------

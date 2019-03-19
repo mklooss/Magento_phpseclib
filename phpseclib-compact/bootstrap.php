@@ -1,8 +1,14 @@
 <?php
 
-$dir = null;
+$originFile = BP . DS . 'lib' . DS . 'phpseclib/bootstrap.php';
+$originExists = false;
+if (file_exists($originFile))
+{
+    $originExists = true;
+}
+
 if (!defined('MAGENTO_PHPSECLIB')) {
-    if (version_compare(Mage::getVersion(), '1.9.4.0') >= 0)
+    if ($originExists)
     {
         define('MAGENTO_PHPSECLIB', true);
     } else {
@@ -13,39 +19,36 @@ if (!defined('MAGENTO_PHPSECLIB')) {
 if (!MAGENTO_PHPSECLIB) {
     if (!defined('PHPSECLIB_VERSION'))
     {
-        define('PHPSECLIB_VERSION', '2.0.13');
-        $dir = 'phpseclib-' . PHPSECLIB_VERSION;
+        define('PHPSECLIB_VERSION', '2.0.15');
     }
 } else {
     if (!defined('BP'))
     {
         throw new Exception('BP is not set');
     }
-    $dir = BP . DS . 'lib' . DS . 'phpseclib';
-    require_once $dir . '/bootstrap.php';
+    require_once $originFile;
 }
 
-require_once $dir . '/Math/BigInteger.php';
-require_once $dir . '/Crypt/Base.php';
-require_once $dir . '/Crypt/DES.php';
-require_once $dir . '/Crypt/RC2.php';
-require_once $dir . '/Crypt/TripleDES.php';
-require_once $dir . '/Crypt/Blowfish.php';
-require_once $dir . '/Crypt/Random.php';
-require_once $dir . '/Crypt/Hash.php';
-require_once $dir . '/Crypt/Rijndael.php';
-require_once $dir . '/Crypt/RC4.php';
-require_once $dir . '/Crypt/RSA.php';
-require_once $dir . '/Crypt/Twofish.php';
-require_once $dir . '/Crypt/AES.php';
-require_once $dir . '/File/X509.php';
-require_once $dir . '/File/ASN1/Element.php';
-require_once $dir . '/File/ANSI.php';
-require_once $dir . '/File/ASN1.php';
-require_once $dir . '/System/SSH/Agent/Identity.php';
-require_once $dir . '/System/SSH/Agent.php';
-require_once $dir . '/Net/SCP.php';
-require_once $dir . '/Net/SSH1.php';
-require_once $dir . '/Net/SSH2.php';
-require_once $dir . '/Net/SFTP.php';
-require_once $dir . '/Net/SFTP/Stream.php';
+if (!MAGENTO_PHPSECLIB)
+{
+    /**
+     * Bootstrapping File for phpseclib
+     *
+     * @license http://www.opensource.org/licenses/mit-license.html MIT License
+     */
+    if (extension_loaded('mbstring')) {
+        // 2 - MB_OVERLOAD_STRING
+        if (ini_get('mbstring.func_overload') & 2) {
+            throw new \UnexpectedValueException(
+                'Overloading of string functions using mbstring.func_overload ' .
+                'is not supported by phpseclib.'
+            );
+        }
+    }
+    spl_autoload_register(function($className) {
+        $path = explode('\\', $className);
+        if (array_shift($path) == 'phpseclib') {
+            return include str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
+        }
+    });
+}
