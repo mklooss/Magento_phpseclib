@@ -19,7 +19,7 @@ if (!defined('MAGENTO_PHPSECLIB')) {
 if (!MAGENTO_PHPSECLIB) {
     if (!defined('PHPSECLIB_VERSION'))
     {
-        define('PHPSECLIB_VERSION', '2.0.15');
+        define('PHPSECLIB_VERSION', '2.0.23');
     }
 } else {
     if (!defined('BP'))
